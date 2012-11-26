@@ -16,6 +16,7 @@ void eulerianCycle(int u, List *graph[]){
 	while( len(graph[u]) > 0){
 		int v;
 		graph[u] = get(graph[u], &v);
+		graph[v] = del(graph[v], u);
 		eulerianCycle(v, graph);
 	}
 	cycle = add(cycle, u);
@@ -52,14 +53,20 @@ int main(){
 	List **graph = (List **) malloc(sizeof(List *) * V);
 	readGraph("Graphs/MST.cedge",V,V-1, NULL, NULL, graph);
 	
-	float *M = (float *)malloc(sizeof(int)*V*V);
+	float *M = (float *)malloc(sizeof(float)*V*V);
 	readGraph("Graphs/Complete.cedge",V,E, NULL, M, NULL);	
 	
 	printf("Fin Lectura\n");
 	
 	multigraph(graph);
+	
+	
+	fprintf(stderr,"Fin Multigraph\n");
+	
 	cycle = makeList();
 	eulerianCycle(lrand48()%V, graph);
+	
+	fprintf(stderr,"Fin Eulerian\n");
 	
 	char used[V];
 	int i;

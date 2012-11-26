@@ -3,14 +3,15 @@ Flat profile:
 Each sample counts as 0.01 seconds.
   %   cumulative   self              self     total           
  time   seconds   seconds    calls   s/call   s/call  name    
- 72.48      5.67     5.67        1     5.67     5.96  quicksort
- 16.22      6.95     1.27        1     1.27     7.51  kruskal
-  4.09      7.26     0.32        1     0.32     0.32  readGraph
-  3.64      7.55     0.28 109102835     0.00     0.00  exchange
-  3.38      7.82     0.27 37277128     0.00     0.00  find
-  0.19      7.83     0.01     6104     0.00     0.00  unir
-  0.00      7.83     0.00    12208     0.00     0.00  add
-  0.00      7.83     0.00        1     0.00     0.00  preorden
+ 73.96      5.88     5.88        1     5.88     6.09  quicksort
+ 15.85      7.14     1.26        1     1.26     7.68  kruskal
+  4.03      7.46     0.32 37277128     0.00     0.00  find
+  3.40      7.73     0.27        1     0.27     0.27  readGraph
+  2.64      7.94     0.21 110108708     0.00     0.00  exchange
+  0.13      7.95     0.01     6104     0.00     0.00  unir
+  0.00      7.95     0.00    18313     0.00     0.00  add
+  0.00      7.95     0.00        1     0.00     0.00  makeList
+  0.00      7.95     0.00        1     0.00     0.00  preorden
 
  %         the percentage of the total running time of the
 time       program used by this function.
@@ -42,51 +43,57 @@ name       the name of the function.  This is the minor sort
 		     Call graph (explanation follows)
 
 
-granularity: each sample hit covers 4 byte(s) for 0.13% of 7.83 seconds
+granularity: each sample hit covers 4 byte(s) for 0.13% of 7.95 seconds
 
 index % time    self  children    called     name
                                                  <spontaneous>
-[1]    100.0    0.00    7.83                 main [1]
-                1.27    6.24       1/1           kruskal [2]
-                0.32    0.00       1/1           readGraph [4]
-                0.00    0.00       1/1           preorden [9]
+[1]    100.0    0.00    7.95                 main [1]
+                1.26    6.42       1/1           kruskal [2]
+                0.27    0.00       1/1           readGraph [5]
+                0.00    0.00       1/1           makeList [9]
+                0.00    0.00       1/1           preorden [10]
 -----------------------------------------------
-                1.27    6.24       1/1           main [1]
-[2]     95.9    1.27    6.24       1         kruskal [2]
-                5.67    0.28       1/1           quicksort [3]
-                0.26    0.00 37264920/37277128     find [6]
+                1.26    6.42       1/1           main [1]
+[2]     96.6    1.26    6.42       1         kruskal [2]
+                5.88    0.21       1/1           quicksort [3]
+                0.32    0.00 37264920/37277128     find [4]
                 0.01    0.00    6104/6104        unir [7]
-                0.00    0.00   12208/12208       add [8]
+                0.00    0.00   12208/18313       add [8]
 -----------------------------------------------
-                             16478345             quicksort [3]
-                5.67    0.28       1/1           kruskal [2]
-[3]     76.1    5.67    0.28       1+16478345 quicksort [3]
-                0.28    0.00 109102835/109102835     exchange [5]
-                             16478345             quicksort [3]
+                             16154507             quicksort [3]
+                5.88    0.21       1/1           kruskal [2]
+[3]     76.6    5.88    0.21       1+16154507 quicksort [3]
+                0.21    0.00 110108708/110108708     exchange [6]
+                             16154507             quicksort [3]
 -----------------------------------------------
-                0.32    0.00       1/1           main [1]
-[4]      4.1    0.32    0.00       1         readGraph [4]
------------------------------------------------
-                0.28    0.00 109102835/109102835     quicksort [3]
-[5]      3.6    0.28    0.00 109102835         exchange [5]
------------------------------------------------
-                             37264828             find [6]
+                             37264828             find [4]
                 0.00    0.00   12208/37277128     unir [7]
-                0.26    0.00 37264920/37277128     kruskal [2]
-[6]      3.4    0.27    0.00 37277128+37264828 find [6]
-                             37264828             find [6]
+                0.32    0.00 37264920/37277128     kruskal [2]
+[4]      4.0    0.32    0.00 37277128+37264828 find [4]
+                             37264828             find [4]
+-----------------------------------------------
+                0.27    0.00       1/1           main [1]
+[5]      3.4    0.27    0.00       1         readGraph [5]
+-----------------------------------------------
+                0.21    0.00 110108708/110108708     quicksort [3]
+[6]      2.6    0.21    0.00 110108708         exchange [6]
 -----------------------------------------------
                 0.01    0.00    6104/6104        kruskal [2]
-[7]      0.2    0.01    0.00    6104         unir [7]
-                0.00    0.00   12208/37277128     find [6]
+[7]      0.1    0.01    0.00    6104         unir [7]
+                0.00    0.00   12208/37277128     find [4]
 -----------------------------------------------
-                0.00    0.00   12208/12208       kruskal [2]
-[8]      0.0    0.00    0.00   12208         add [8]
+                0.00    0.00    6105/18313       preorden [10]
+                0.00    0.00   12208/18313       kruskal [2]
+[8]      0.0    0.00    0.00   18313         add [8]
 -----------------------------------------------
-                                6104             preorden [9]
                 0.00    0.00       1/1           main [1]
-[9]      0.0    0.00    0.00       1+6104    preorden [9]
-                                6104             preorden [9]
+[9]      0.0    0.00    0.00       1         makeList [9]
+-----------------------------------------------
+                                6104             preorden [10]
+                0.00    0.00       1/1           main [1]
+[10]     0.0    0.00    0.00       1+6104    preorden [10]
+                0.00    0.00    6105/18313       add [8]
+                                6104             preorden [10]
 -----------------------------------------------
 
  This table describes the call tree of the program, and was sorted by
@@ -174,6 +181,6 @@ index % time    self  children    called     name
 
 Index by function name
 
-   [8] add                     [2] kruskal                 [4] readGraph
-   [5] exchange                [9] preorden                [7] unir
-   [6] find                    [3] quicksort
+   [8] add                     [2] kruskal                 [3] quicksort
+   [6] exchange                [9] makeList                [5] readGraph
+   [4] find                   [10] preorden                [7] unir

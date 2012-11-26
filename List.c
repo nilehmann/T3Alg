@@ -22,10 +22,34 @@ List *get(List *l, int *a){
 	}
 	*a = l->this;
 	List *ll = l->next;
+	if(ll != NULL)
+		ll->len = l->len -1;
 	free(l);
 	return ll;
 }
 
+List *del(List *l, int a){
+	if(l == NULL)
+		return NULL;
+		
+	if(l->this == a){
+		int b;
+		return get(l, &b); 
+	}
+
+	List *curr = l->next;
+	List *prev = l;
+	while(curr != NULL){
+		if(a == l->this){
+			prev->next = curr->next;
+			free(curr);
+			break;
+		}
+		prev = curr;
+		curr = curr->next;
+	}
+	return l;
+}
 int len(List *l){
 	if(l == NULL)
 		return 0;

@@ -38,7 +38,6 @@ float compute(Edge *edges[]){
 			peso += n->weight;
 			break;
 		}
-		//si hay una sola componente break	
 	}			
 	return peso;
 }

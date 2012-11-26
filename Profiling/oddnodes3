@@ -3,15 +3,17 @@ Flat profile:
 Each sample counts as 0.01 seconds.
   %   cumulative   self              self     total           
  time   seconds   seconds    calls   s/call   s/call  name    
- 70.98      5.70     5.70        1     5.70     6.03  quicksort
- 16.31      7.01     1.31        1     1.31     7.49  kruskal
-  4.73      7.39     0.38        1     0.38     0.38  readGraph
-  4.11      7.72     0.33 109102835     0.00     0.00  exchange
-  1.99      7.88     0.16        1     0.16     0.16  printSubGraph
-  1.74      8.02     0.14 37277128     0.00     0.00  find
-  0.12      8.03     0.01     6104     0.00     0.00  unir
-  0.00      8.03     0.00    14660     0.00     0.00  add
-  0.00      8.03     0.00        1     0.00     0.00  OddNodes
+ 72.70      5.78     5.78        1     5.78     6.02  quicksort
+ 16.60      7.10     1.32        1     1.32     7.54  kruskal
+  3.65      7.39     0.29        1     0.29     0.29  readGraph
+  3.02      7.63     0.24 110108708     0.00     0.00  exchange
+  2.39      7.82     0.19 37277128     0.00     0.00  find
+  1.51      7.94     0.12        1     0.12     0.12  printSubGraph
+  0.13      7.95     0.01     6104     0.00     0.00  unir
+  0.00      7.95     0.00    14660     0.00     0.00  add
+  0.00      7.95     0.00        1     0.00     0.00  OddNodes
+  0.00      7.95     0.00        1     0.00     0.00  len
+  0.00      7.95     0.00        1     0.00     0.00  makeList
 
  %         the percentage of the total running time of the
 time       program used by this function.
@@ -43,47 +45,49 @@ name       the name of the function.  This is the minor sort
 		     Call graph (explanation follows)
 
 
-granularity: each sample hit covers 4 byte(s) for 0.12% of 8.03 seconds
+granularity: each sample hit covers 4 byte(s) for 0.13% of 7.95 seconds
 
 index % time    self  children    called     name
                                                  <spontaneous>
-[1]    100.0    0.00    8.03                 main [1]
-                1.31    6.18       1/1           kruskal [2]
-                0.38    0.00       1/1           readGraph [4]
-                0.16    0.00       1/1           printSubGraph [6]
+[1]    100.0    0.00    7.95                 main [1]
+                1.32    6.22       1/1           kruskal [2]
+                0.29    0.00       1/1           readGraph [4]
+                0.12    0.00       1/1           printSubGraph [7]
+                0.00    0.00       1/1           makeList [12]
                 0.00    0.00       1/1           OddNodes [10]
+                0.00    0.00       1/1           len [11]
 -----------------------------------------------
-                1.31    6.18       1/1           main [1]
-[2]     93.3    1.31    6.18       1         kruskal [2]
-                5.70    0.33       1/1           quicksort [3]
-                0.14    0.00 37264920/37277128     find [7]
+                1.32    6.22       1/1           main [1]
+[2]     94.8    1.32    6.22       1         kruskal [2]
+                5.78    0.24       1/1           quicksort [3]
+                0.19    0.00 37264920/37277128     find [6]
                 0.01    0.00    6104/6104        unir [8]
                 0.00    0.00   12208/14660       add [9]
 -----------------------------------------------
-                             16478345             quicksort [3]
-                5.70    0.33       1/1           kruskal [2]
-[3]     75.1    5.70    0.33       1+16478345 quicksort [3]
-                0.33    0.00 109102835/109102835     exchange [5]
-                             16478345             quicksort [3]
+                             16154507             quicksort [3]
+                5.78    0.24       1/1           kruskal [2]
+[3]     75.7    5.78    0.24       1+16154507 quicksort [3]
+                0.24    0.00 110108708/110108708     exchange [5]
+                             16154507             quicksort [3]
 -----------------------------------------------
-                0.38    0.00       1/1           main [1]
-[4]      4.7    0.38    0.00       1         readGraph [4]
+                0.29    0.00       1/1           main [1]
+[4]      3.6    0.29    0.00       1         readGraph [4]
 -----------------------------------------------
-                0.33    0.00 109102835/109102835     quicksort [3]
-[5]      4.1    0.33    0.00 109102835         exchange [5]
+                0.24    0.00 110108708/110108708     quicksort [3]
+[5]      3.0    0.24    0.00 110108708         exchange [5]
 -----------------------------------------------
-                0.16    0.00       1/1           main [1]
-[6]      2.0    0.16    0.00       1         printSubGraph [6]
------------------------------------------------
-                             37264828             find [7]
+                             37264828             find [6]
                 0.00    0.00   12208/37277128     unir [8]
-                0.14    0.00 37264920/37277128     kruskal [2]
-[7]      1.7    0.14    0.00 37277128+37264828 find [7]
-                             37264828             find [7]
+                0.19    0.00 37264920/37277128     kruskal [2]
+[6]      2.4    0.19    0.00 37277128+37264828 find [6]
+                             37264828             find [6]
+-----------------------------------------------
+                0.12    0.00       1/1           main [1]
+[7]      1.5    0.12    0.00       1         printSubGraph [7]
 -----------------------------------------------
                 0.01    0.00    6104/6104        kruskal [2]
 [8]      0.1    0.01    0.00    6104         unir [8]
-                0.00    0.00   12208/37277128     find [7]
+                0.00    0.00   12208/37277128     find [6]
 -----------------------------------------------
                 0.00    0.00    2452/14660       OddNodes [10]
                 0.00    0.00   12208/14660       kruskal [2]
@@ -94,6 +98,12 @@ index % time    self  children    called     name
 [10]     0.0    0.00    0.00       1+6104    OddNodes [10]
                 0.00    0.00    2452/14660       add [9]
                                 6104             OddNodes [10]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[11]     0.0    0.00    0.00       1         len [11]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[12]     0.0    0.00    0.00       1         makeList [12]
 -----------------------------------------------
 
  This table describes the call tree of the program, and was sorted by
@@ -181,6 +191,7 @@ index % time    self  children    called     name
 
 Index by function name
 
-  [10] OddNodes                [7] find                    [3] quicksort
-   [9] add                     [2] kruskal                 [4] readGraph
-   [5] exchange                [6] printSubGraph           [8] unir
+  [10] OddNodes                [2] kruskal                 [3] quicksort
+   [9] add                    [11] len                     [4] readGraph
+   [5] exchange               [12] makeList                [8] unir
+   [6] find                    [7] printSubGraph

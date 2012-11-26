@@ -3,12 +3,12 @@ Flat profile:
 Each sample counts as 0.01 seconds.
   %   cumulative   self              self     total           
  time   seconds   seconds    calls   s/call   s/call  name    
- 73.20      5.80     5.80        1     5.80     6.09  quicksort
- 18.54      7.28     1.47        1     1.47     7.70  compute
-  3.59      7.56     0.28 109102835     0.00     0.00  exchange
-  2.90      7.79     0.23        1     0.23     0.23  readGraph
-  1.58      7.92     0.12 37277128     0.00     0.00  find
-  0.19      7.93     0.01     6104     0.00     0.00  unir
+ 75.40      6.08     6.08        1     6.08     6.29  quicksort
+ 17.35      7.49     1.40        1     1.40     7.96  compute
+  3.04      7.73     0.24 55442681     0.00     0.00  find
+  2.54      7.93     0.20 110108708     0.00     0.00  exchange
+  1.36      8.04     0.11        1     0.11     0.11  readGraph
+  0.31      8.07     0.03     6104     0.00     0.00  unir
 
  %         the percentage of the total running time of the
 time       program used by this function.
@@ -40,41 +40,41 @@ name       the name of the function.  This is the minor sort
 		     Call graph (explanation follows)
 
 
-granularity: each sample hit covers 4 byte(s) for 0.13% of 7.93 seconds
+granularity: each sample hit covers 4 byte(s) for 0.12% of 8.07 seconds
 
 index % time    self  children    called     name
                                                  <spontaneous>
-[1]    100.0    0.00    7.93                 main [1]
-                1.47    6.23       1/1           compute [2]
-                0.23    0.00       1/1           readGraph [5]
+[1]    100.0    0.00    8.07                 main [1]
+                1.40    6.56       1/1           compute [2]
+                0.11    0.00       1/1           readGraph [6]
 -----------------------------------------------
-                1.47    6.23       1/1           main [1]
-[2]     97.1    1.47    6.23       1         compute [2]
-                5.80    0.28       1/1           quicksort [3]
-                0.12    0.00 37264920/37277128     find [6]
-                0.01    0.00    6104/6104        unir [7]
+                1.40    6.56       1/1           main [1]
+[2]     98.6    1.40    6.56       1         compute [2]
+                6.08    0.20       1/1           quicksort [3]
+                0.24    0.00 55430473/55442681     find [4]
+                0.03    0.00    6104/6104        unir [7]
 -----------------------------------------------
-                             16478345             quicksort [3]
-                5.80    0.28       1/1           compute [2]
-[3]     76.8    5.80    0.28       1+16478345 quicksort [3]
-                0.28    0.00 109102835/109102835     exchange [4]
-                             16478345             quicksort [3]
+                             16154507             quicksort [3]
+                6.08    0.20       1/1           compute [2]
+[3]     77.9    6.08    0.20       1+16154507 quicksort [3]
+                0.20    0.00 110108708/110108708     exchange [5]
+                             16154507             quicksort [3]
 -----------------------------------------------
-                0.28    0.00 109102835/109102835     quicksort [3]
-[4]      3.6    0.28    0.00 109102835         exchange [4]
+                             55385850             find [4]
+                0.00    0.00   12208/55442681     unir [7]
+                0.24    0.00 55430473/55442681     compute [2]
+[4]      3.0    0.24    0.00 55442681+55385850 find [4]
+                             55385850             find [4]
 -----------------------------------------------
-                0.23    0.00       1/1           main [1]
-[5]      2.9    0.23    0.00       1         readGraph [5]
+                0.20    0.00 110108708/110108708     quicksort [3]
+[5]      2.5    0.20    0.00 110108708         exchange [5]
 -----------------------------------------------
-                             37225917             find [6]
-                0.00    0.00   12208/37277128     unir [7]
-                0.12    0.00 37264920/37277128     compute [2]
-[6]      1.6    0.12    0.00 37277128+37225917 find [6]
-                             37225917             find [6]
+                0.11    0.00       1/1           main [1]
+[6]      1.4    0.11    0.00       1         readGraph [6]
 -----------------------------------------------
-                0.01    0.00    6104/6104        compute [2]
-[7]      0.2    0.01    0.00    6104         unir [7]
-                0.00    0.00   12208/37277128     find [6]
+                0.03    0.00    6104/6104        compute [2]
+[7]      0.3    0.03    0.00    6104         unir [7]
+                0.00    0.00   12208/55442681     find [4]
 -----------------------------------------------
 
  This table describes the call tree of the program, and was sorted by
@@ -162,5 +162,5 @@ index % time    self  children    called     name
 
 Index by function name
 
-   [2] compute                 [6] find                    [5] readGraph
-   [4] exchange                [3] quicksort               [7] unir
+   [2] compute                 [4] find                    [6] readGraph
+   [5] exchange                [3] quicksort               [7] unir

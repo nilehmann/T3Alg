@@ -3,13 +3,14 @@ Flat profile:
 Each sample counts as 0.01 seconds.
   %   cumulative   self              self     total           
  time   seconds   seconds    calls  ms/call  ms/call  name    
-100.00      0.33     0.33        2   165.00   165.00  readGraph
-  0.00      0.33     0.00    36625     0.00     0.00  add
-  0.00      0.33     0.00    36625     0.00     0.00  len
-  0.00      0.33     0.00    18312     0.00     0.00  get
-  0.00      0.33     0.00     6106     0.00     0.00  makeList
-  0.00      0.33     0.00        1     0.00     0.00  eulerianCycle
-  0.00      0.33     0.00        1     0.00     0.00  multigraph
+100.00      0.12     0.12        2    60.00    60.00  readGraph
+  0.00      0.12     0.00    37381     0.00     0.00  add
+  0.00      0.12     0.00    25927     0.00     0.00  len
+  0.00      0.12     0.00    18312     0.00     0.00  get
+  0.00      0.12     0.00    12963     0.00     0.00  del
+  0.00      0.12     0.00     6107     0.00     0.00  makeList
+  0.00      0.12     0.00        1     0.00     0.00  eulerianCycle
+  0.00      0.12     0.00        1     0.00     0.00  multigraph
 
  %         the percentage of the total running time of the
 time       program used by this function.
@@ -41,47 +42,55 @@ name       the name of the function.  This is the minor sort
 		     Call graph (explanation follows)
 
 
-granularity: each sample hit covers 4 byte(s) for 3.03% of 0.33 seconds
+granularity: each sample hit covers 4 byte(s) for 8.33% of 0.12 seconds
 
 index % time    self  children    called     name
-                0.33    0.00       2/2           main [2]
-[1]    100.0    0.33    0.00       2         readGraph [1]
-                0.00    0.00   12208/36625       add [3]
-                0.00    0.00    6105/6106        makeList [6]
+                0.12    0.00       2/2           main [2]
+[1]    100.0    0.12    0.00       2         readGraph [1]
+                0.00    0.00   12208/37381       add [3]
+                0.00    0.00    6105/6107        makeList [7]
 -----------------------------------------------
                                                  <spontaneous>
-[2]    100.0    0.00    0.33                 main [2]
-                0.33    0.00       2/2           readGraph [1]
-                0.00    0.00       1/1           multigraph [8]
-                0.00    0.00       1/6106        makeList [6]
-                0.00    0.00       1/1           eulerianCycle [7]
+[2]    100.0    0.00    0.12                 main [2]
+                0.12    0.00       2/2           readGraph [1]
+                0.00    0.00    6105/37381       add [3]
+                0.00    0.00       2/6107        makeList [7]
+                0.00    0.00       1/1           multigraph [9]
+                0.00    0.00       1/1           eulerianCycle [8]
 -----------------------------------------------
-                0.00    0.00    6104/36625       multigraph [8]
-                0.00    0.00   12208/36625       readGraph [1]
-                0.00    0.00   18313/36625       eulerianCycle [7]
-[3]      0.0    0.00    0.00   36625         add [3]
+                0.00    0.00    6104/37381       multigraph [9]
+                0.00    0.00    6105/37381       main [2]
+                0.00    0.00   12208/37381       readGraph [1]
+                0.00    0.00   12964/37381       eulerianCycle [8]
+[3]      0.0    0.00    0.00   37381         add [3]
 -----------------------------------------------
-                0.00    0.00   36625/36625       eulerianCycle [7]
-[4]      0.0    0.00    0.00   36625         len [4]
+                0.00    0.00   25927/25927       eulerianCycle [8]
+[4]      0.0    0.00    0.00   25927         len [4]
 -----------------------------------------------
-                0.00    0.00   18312/18312       eulerianCycle [7]
+                0.00    0.00    5349/18312       del [6]
+                0.00    0.00   12963/18312       eulerianCycle [8]
 [5]      0.0    0.00    0.00   18312         get [5]
 -----------------------------------------------
-                0.00    0.00       1/6106        main [2]
-                0.00    0.00    6105/6106        readGraph [1]
-[6]      0.0    0.00    0.00    6106         makeList [6]
+                0.00    0.00   12963/12963       eulerianCycle [8]
+[6]      0.0    0.00    0.00   12963         del [6]
+                0.00    0.00    5349/18312       get [5]
 -----------------------------------------------
-                               18312             eulerianCycle [7]
+                0.00    0.00       2/6107        main [2]
+                0.00    0.00    6105/6107        readGraph [1]
+[7]      0.0    0.00    0.00    6107         makeList [7]
+-----------------------------------------------
+                               12963             eulerianCycle [8]
                 0.00    0.00       1/1           main [2]
-[7]      0.0    0.00    0.00       1+18312   eulerianCycle [7]
-                0.00    0.00   36625/36625       len [4]
-                0.00    0.00   18313/36625       add [3]
-                0.00    0.00   18312/18312       get [5]
-                               18312             eulerianCycle [7]
+[8]      0.0    0.00    0.00       1+12963   eulerianCycle [8]
+                0.00    0.00   25927/25927       len [4]
+                0.00    0.00   12964/37381       add [3]
+                0.00    0.00   12963/18312       get [5]
+                0.00    0.00   12963/12963       del [6]
+                               12963             eulerianCycle [8]
 -----------------------------------------------
                 0.00    0.00       1/1           main [2]
-[8]      0.0    0.00    0.00       1         multigraph [8]
-                0.00    0.00    6104/36625       add [3]
+[9]      0.0    0.00    0.00       1         multigraph [9]
+                0.00    0.00    6104/37381       add [3]
 -----------------------------------------------
 
  This table describes the call tree of the program, and was sorted by
@@ -169,6 +178,6 @@ index % time    self  children    called     name
 
 Index by function name
 
-   [3] add                     [4] len                     [1] readGraph
-   [7] eulerianCycle           [6] makeList
-   [5] get                     [8] multigraph
+   [3] add                     [5] get                     [9] multigraph
+   [6] del                     [4] len                     [1] readGraph
+   [8] eulerianCycle           [7] makeList
